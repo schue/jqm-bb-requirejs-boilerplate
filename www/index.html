@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Boilerplate PhoneGap/Cordova App with RequireJS, Backbone and jQuery Mobile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+
+ <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/sts.css"/>
+	<script src="scripts/libs/phonegap/cordova-2.0.0.js"></script>
+
+    <script type="text/javascript">
+        (function(){
+            var init = function() {
+                var a = document.createElement('script');
+                a.type = 'text/javascript';
+                a.setAttribute('data-main', 'scripts/main');
+                a.src = 'scripts/libs/require/require-1.0.6.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(a, s);
+            }
+
+            if (/^file.*/.test(document.URL)) {
+                console.log('cordova');
+                document.addEventListener('deviceready', function(){
+                    init();
+                }, false);
+            } else {
+                console.log('web based');
+                init();
+            }
+        })();
+    </script>
+</head>
+<body>
+</body>
+</html>
